@@ -19,8 +19,13 @@
     import '../../common/common.css'
     import newnav from './nav/nav.vue'
     import newheader from './header/header.vue'
+    import '../../bootstrap/css/bootstrap.css'
 
     export default {
+        mounted:function(){
+           var user= window.localStorage.getItem('ffztoken') ;
+           console.log(user)
+        },
         components: {
             newnav,
             newheader

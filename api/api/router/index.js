@@ -1,5 +1,5 @@
 const express=require('express');
-const session=require('express-session');
+
 
 var app=express();
 const http=require('http').Server(app);
@@ -9,7 +9,7 @@ const bp=require('body-parser');
 const path=require('path');
 
 const usersRouter=require('./users');
-// const productsRouter=require('./products');
+const productsRouter=require('./product');
 // const orderRouter=require('./order');
 // const ioserver=require('./ioserver');
 
@@ -26,18 +26,18 @@ app.all('*', function(req, res, next) {
     }
 });
 
-app.use(express.static(path.join(path.resolve(__dirname, '../../'), '/web')));
+// app.use(express.static(path.join(path.resolve(__dirname, '../../'), '/web')));
 app.use(bp.urlencoded({extended: false}));
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+
 
 module.exports={
     start(_port){
         usersRouter.register(app);
-        // productsRouter.register(app);
+        productsRouter.register(app);
         // orderRouter.register(app);
-        ioserver.startws(io);
-        http.listen(_port||8080)
+        // ioserver.startws(io);
+        http.listen(_port||7070)
     }
     
 }

@@ -3,7 +3,7 @@ const client = mongo.MongoClient;
 const ObjectID = mongo.ObjectID;
 let db;
 
-client.connect('mongodb://127.0.0.1:27017', (_error, _db) => {
+client.connect('mongodb://10.3.136.21:27017', (_error, _db) => {
     if(_error){
         console.error(_error);
         return false;
@@ -18,6 +18,7 @@ module.exports={
                 db.db('team7').collection(_collection).find(_condition || {}).toArray((_error, _data) => {
                     if(_error){
                         reject(_error)
+                        console.log(999)
                     } else {
                         resolve(_data);
                     }

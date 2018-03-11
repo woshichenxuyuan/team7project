@@ -1,2 +1,2 @@
 var router=require('./router/index.js');
-router.start(8080);
+router.start(7070);

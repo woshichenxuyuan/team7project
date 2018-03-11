@@ -1,0 +1,31 @@
+.hd{
+    background:#032e9d;
+    height:100%;
+    h5{
+    float:left;
+        width:1100px;
+        font-size:16px;
+        color:skyblue;
+        display:block;
+        height:100%;
+        line-height:80px;
+        margin-left:10px;
+        span{
+            display:line-block;
+            height:80px;
+            font-size:30px;
+            color:#fff;
+        }
+    }
+    .right{
+        height:80px;
+        line-height:80px;
+        color:pink;
+        float:left;
+        a{
+            color:#fff;
+        }
+    }
+}
+
+

@@ -1,9 +1,3 @@
-const apiResult = require('./apiResult')
-
-module.exports = function(req, res, next){
-    if(req.session.username){
-        next();
-    } else {
-        res.send(apiResult(false, null, null, 'unauthorized'))
-    }
+module.exports=function(_result,_data,_message,_error){
+    return {status:_result,data:_data,message:_message,error:_error};
 }
