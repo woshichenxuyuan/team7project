@@ -13,9 +13,9 @@ module.exports={
         //否者返回登录失败信息
         app.post('/login',(req,res)=>{
             let username=req.body.username;
-            let password=req.body.password;
-            console.log(username,password)
-            db.mongodb.select('users',{username,password}).then((result)=>{
+            let pwd=req.body.pwd;
+            console.log(username,pwd)
+            db.mongodb.select('users',{username,pwd}).then((result)=>{
                 var token='';
                 console.log(result.length,result)
                 var user={username}
@@ -29,6 +29,43 @@ module.exports={
                 console.log(9999)
                 res.send({status:false,error})
             })
+        }),
+        app.post('/clients',(req,res)=>{
+            var page=req.body.page;
+            var arr=[];
+
+            db.mongodb.select('clients',{}).then((result)=>{
+                if(page){
+                    for(var i=8*(page-1);i<8*page;i++){
+                        arr.push(result[i]);
+                    }
+                    var lgt=result.length
+                    res.send({arr,lgt});  
+                }
+                else{
+                    res.send(false)
+                }
+                // res.send(result)
+            })
         })
+        app.post('/auth',(req,res)=>{
+            var page=req.body.page;
+            var arr=[];
+
+            db.mongodb.select('users',{}).then((result)=>{
+                if(page){
+                    for(var i=8*(page-1);i<8*page;i++){
+                        arr.push(result[i]);
+                    }
+                    var lgt=result.length
+                    res.send({arr,lgt});  
+                }
+                else{
+                    res.send(false)
+                }
+                // res.send(result)
+            })
+        }) 
     }
-} 
+}
+

@@ -58,6 +58,22 @@ module.exports={
             })
         }
     },
+    check:(_collection,condition)=>{
+        console.log(condition)
+        var reg= new RegExp(condition)
+        if(db){
+            return new Promise((resolve,reject)=>{
+                db.db('team7').collection(_collection).find({"title":{$regex:reg}}).toArray((error,data)=>{
+                    if(error){
+                        reject(error);
+                    }else{
+                        resolve(data)
+                    }
+                })
+            })
+        }
+
+    },
 
     objectid: (_id) => {
         return _id ? new ObjectID(_id) : new ObjectID();

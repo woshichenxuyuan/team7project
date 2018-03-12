@@ -2,4 +2,4 @@
 
 .body{position: fixed; top: 80px; left: 0; right: 0; bottom: 0; border:  solid 1px #ccc;}
 .body>.nav{position: absolute; left: 0; width: 200px; border-right: solid 1px  #ccc; top: 0; bottom: 0;}
-.body>.container{position: absolute; left: 200px; top: 0; right: 0; bottom: 0;padding:0;}
+.body>.container{position: absolute; left: 200px; top: 0; right: 0; bottom: 0;padding:0;overflow-y:auto;}

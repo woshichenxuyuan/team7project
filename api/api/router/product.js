@@ -35,7 +35,7 @@ module.exports= {
         }),
         app.post('/page',(req,res)=>{
             var page=req.body.page;
-            console.log(page,'page')
+            // console.log(page,'page')
             var arr=[];
             db.mongodb.select('products',{}).then((result)=>{
                 if(page){
@@ -46,9 +46,27 @@ module.exports= {
                 // console.log(arr);
             var lgt=result.length
                 res.send({arr,lgt});
-                }else{
+                }
+                else{
                     res.send(false)
                 }
+            })
+        }),
+        app.post('/del',(req,res)=>{
+            var _id=req.body.id;
+            var rot=req.body.rot;
+            var oid=db.mongodb.objectid(_id);
+            db.mongodb.remove(rot,{_id:oid}).then((result)=>{
+                res.send({status:'删除成功'})
+            })
+
+        }),
+        app.post('/check',(req,res)=>{
+            var key=req.body.key;
+            db.mongodb.check('products',key).then((result)=>{
+                var arr=result;
+                var lgt=result.length;
+                res.send({arr,lgt})
             })
         })
     }

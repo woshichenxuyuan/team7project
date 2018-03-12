@@ -6,7 +6,8 @@ Vue.use(VueRouter)
 import HomeComponent from '../components/home/home.vue'
 import loginComponent from '../components/login/login.vue'
 import selectComponent from '../components/select/select.vue'
-
+import clientsComponent from '../components/clients/clients.vue'
+import authComponent from '../components/authority/authority.vue'
 const router = new VueRouter({
     routes: [
         {
@@ -17,7 +18,19 @@ const router = new VueRouter({
                 {
                     path: '/select',
                     name:'select',
-                     component: selectComponent}
+                     component: selectComponent
+                 },
+                 {
+                    path:'/clients',
+                    name:'clients',
+                    component:clientsComponent
+                 },
+                  {
+                    path:'/auth',
+                    name:'auth',
+                    component:authComponent
+                 }
+
             ]
         },
         {path: '/login',name:'login' ,component: loginComponent},

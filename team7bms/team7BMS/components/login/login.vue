@@ -34,7 +34,7 @@
         },
         methods:{
             login(){
-                http.post('login',{username:this.username,password:this.password}).then((res)=>{
+                http.post('login',{username:this.username,pwd:this.password}).then((res)=>{
                     console.log(res.data.data)
                     if(res.data.status){
                         window.localStorage.setItem('ffztoken',res.data.data[0].username);

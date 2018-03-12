@@ -13,9 +13,9 @@
         data(){
             return {
                 config:{
-                    api:"http://10.3.136.63:7070/page",
-                    cols:['_id','url','brand','units','type','standards'],
-                    del:'products'
+                    api:"http://10.3.136.63:7070/auth",
+                    cols:['pwd','_id'],
+                    del:'users'
                 }
             }
         }
