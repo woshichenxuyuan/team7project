@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl="http://10.3.136.21:7070"
+const baseUrl="http://10.3.136.63:7070"
 
 export default {
     get(_url,_params){

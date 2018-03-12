@@ -13,8 +13,8 @@
         data(){
             return {
                 config:{
-                    api:"http:10.3.136.21:7070/products",
-                    clos:['_id','url','brand','units','type','discount','hot','standards']
+                    api:"http://10.3.136.63:7070/page",
+                    cols:['_id','url','brand','units','type','standards']
                 }
             }
         }

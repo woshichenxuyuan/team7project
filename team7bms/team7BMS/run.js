@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import homeComponnet from './components/home/home.vue';
-import appComponent from './components/aap/app.vue'
+import homeComponent from './components/home/home.vue';
+import appComponent from './components/app/app.vue'
 import router from './router/router.js'
 
 new Vue({

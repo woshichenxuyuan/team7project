@@ -5,12 +5,23 @@ Vue.use(VueRouter)
 
 import HomeComponent from '../components/home/home.vue'
 import loginComponent from '../components/login/login.vue'
+import selectComponent from '../components/select/select.vue'
 
 const router = new VueRouter({
     routes: [
-        {path: '/',name:'index', component: HomeComponent},
+        {
+            path: '/',
+            name:'index', 
+            component: HomeComponent,
+            children:[
+                {
+                    path: '/select',
+                    name:'select',
+                     component: selectComponent}
+            ]
+        },
         {path: '/login',name:'login' ,component: loginComponent},
-        // {path: '/cnodejs', component: CnodejsComponent}
+        
     ]
 })
 
