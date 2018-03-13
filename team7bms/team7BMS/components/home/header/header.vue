@@ -14,16 +14,14 @@
 import './header.scss'
 // import router from '../../../router/router.js'
    
-    var user= window.localStorage.getItem('ffztoken')
-    console.log(user)
+    // var user= window.localStorage.getItem('ffztoken');
+    // console.log(user,"name")
+    // var user='';
     export default {
-        mouted:function(){
-             var user= window.localStorage.getItem('ffztoken')
-            return user
-        },
+      
         data:function(){
             return {
-                name:user
+                name:this.getName()
             }
         },
         methods:{
@@ -31,6 +29,17 @@ import './header.scss'
             window.localStorage.removeItem('ffztoken');
             console.log(999)
             window.location.href="http://localhost:8080/#/login"
+
+            },
+            getName(){
+                var user= window.localStorage.getItem('ffztoken');
+                if (user) {
+
+                    return user
+                }else{
+                    window.location.href="http://localhost:8080/#/login"
+
+                }
 
             }
         }

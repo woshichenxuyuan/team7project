@@ -13,6 +13,7 @@ client.connect('mongodb://10.3.136.63:27017', (_error, _db) => {
 
 module.exports={
     select:(_collection,_condition)=>{
+       
         if(db){
             return new Promise((resolve, reject) => {
                 db.db('team7').collection(_collection).find(_condition || {}).toArray((_error, _data) => {
@@ -50,6 +51,7 @@ module.exports={
     },
     
     remove:(_collection,_condition)=>{
+     
         if(db){
             return new Promise((resolve,reject)=>{
                 db.db('team7').collection(_collection).remove(_condition).then((result,error)=>{
@@ -59,7 +61,7 @@ module.exports={
         }
     },
     check:(_collection,condition)=>{
-        console.log(condition)
+        
         var reg= new RegExp(condition)
         if(db){
             return new Promise((resolve,reject)=>{

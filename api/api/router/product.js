@@ -68,6 +68,25 @@ module.exports= {
                 var lgt=result.length;
                 res.send({arr,lgt})
             })
+        }),
+        app.post('/updatePro',(req,res)=>{
+            let _id=req.body._id;
+            let oid=db.mongodb.objectid(_id);
+            let title=req.body.title;
+            let brand=req.body.brand;
+            let standards=req.body.standards;
+            let shop=req.body.shop;
+            let price=req.body.price;
+            let hot=req.body.hot;
+            let family=req.body.family;
+            let discount=req.body.discount;
+            let url=req.body.url;
+            let type=req.body.type;
+            let units=req.body.units;
+            db.mongodb.update('products',{_id:oid},{title,brand,standards,shop,price,hot,family,discount,url,type,units}).then((result)=>{
+                res.send(apiRouter(true,result))
+            })
         })
+
     }
 }
